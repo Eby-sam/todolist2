@@ -2,8 +2,8 @@
 require_once '../dao/imp/UtilisateurDaoImp.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
-    $emailConnexion = $_POST['email_connexion'];
-    $motDePasseConnexion = $_POST['mot_de_passe_connexion'];
+    $emailConnexion = $_POST['email'];
+    $motDePasseConnexion = $_POST['mot_de_passe'];
 
     if (empty($emailConnexion) || empty($motDePasseConnexion)) {
         echo "Tous les champs sont obligatoires pour la connexion.";
@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
         $utilisateur = $utilisateurDao->connexion($emailConnexion, $motDePasseConnexion);
 
         if ($utilisateur) {
-            $_SESSION['id'] = $utilisateur->getId();
             session_start();
+            $_SESSION['id'] = $utilisateur->getId();
             header("Location: /index.php");
             exit();
         }

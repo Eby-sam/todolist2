@@ -33,6 +33,7 @@ class UtilisateurDaoImp implements UtilisateurDao {
     }
 
     public function connexion(string $email, string $password) {
+
         if (empty($email) || empty($password)) {
             return false;
         }
@@ -50,6 +51,7 @@ class UtilisateurDaoImp implements UtilisateurDao {
             exit();
 
         }
+
         else {
             return false;
 

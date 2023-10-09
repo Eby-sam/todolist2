@@ -1,7 +1,5 @@
 <?php
 
-
-
 interface UtilisateurDao {
     public function createUtilisateur($nom, $prenom, $email, $motDePasse);
     public function getUtilisateurParEmail($email);
